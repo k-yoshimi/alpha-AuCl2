@@ -1,0 +1,41 @@
+[base.control]
+restart_mode="'from_scratch'"
+tstress = ".true."
+tprnfor = ".true."
+wf_collect = ".true."
+prefix = "'l-bets'"
+pseudo_dir = "'/home/k0713/k071300/data/sg15_oncv_upf_2020-02-06'"
+[base.system]
+ecutwfc = 80.0
+ecutrho = 320.0
+occupations = "'smearing'"
+smearing = "'gaussian'"
+degauss = 0.02
+[base.electrons]
+conv_thr =  "1.0d-8"
+mixing_beta = 0.3
+[base.k_points]
+k_points = [3,3,5,0,0,0]
+
+[scf.control]
+calculation="'scf'"
+
+[relax.control]
+calculation="'relax'"
+etot_conv_thr = "1.0d-5"
+forc_conv_thr = "1.0d-4"
+disk_io="'low'"
+nstep = 500
+[nscf.control]
+calculation="'nscf'"
+[nscf.system]
+nbnd = 500
+
+[band.control]
+calculation="'bands'"
+[band.k_points]
+k_points = 9
+k_path = " 0.0 0.0 0.0 20 !GAMMA\n 0.0 0.0 0.5 20 !Z\n 0.0 0.5 0.0 20 !Y\n 0.0 -0.5 0.0 20 !Y_2\n 0.5 0.0 0.0 20 !X\n 0.5 -0.5 0.0 20 !V_2\n -0.5 0.0 0.5 20 !U_2\n 0.0 -0.5 0.5 20 !T_2\n -0.5 -0.5 0.5 20 !R_2"
+
+
+
