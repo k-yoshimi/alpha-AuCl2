@@ -44,9 +44,6 @@ import tomli
 import glob
 import numpy as np
 
-with open("pressure_cif.dat", "r") as fr:
-    lines = fr.readlines()
-
 os.makedirs("band", exist_ok=True)
 
 def get_fermi_energy(file_name):
@@ -70,21 +67,18 @@ def get_fermi_energy(file_name):
         fermi_energy = float(name.text) * constants.physical_constants["Hartree energy in eV"][0]
     return fermi_energy
 
-
 str_gnuplot = "set yrange[-1.2:0.5]\n"
-for line in lines:
-    words = line.split()
-    output_file_folder = "{}GPa".format(words[1])
-    command = ["cp", os.path.join(output_file_folder, "icl2.band.gnu"), os.path.join("band", "{}.band.gnu".format(words[1]))]
-    subprocess.run(command)
-    ene_f = get_fermi_energy(os.path.join(output_file_folder, "icl2.save", "data-file-schema.xml"))
-    with open(os.path.join(output_file_folder, "icl2.band.gnu"), "r") as fr:
-        lines_iband = fr.readlines()
-    k_max = lines_iband[-2].split()[0]
-    command = ["cp", os.path.join(output_file_folder, "dir-wan", "dat.iband"), os.path.join("band", "{}.dat.iband".format(words[1]))]
-    subprocess.run(command)
-    str_gnuplot += "set terminal pdf enhanced color\n"
-    str_gnuplot += "set output '{}_band.pdf'\n".format(output_file_folder)
-    str_gnuplot += "plot '{}.band.gnu' using ($1/{}):($2-{}) w lp, '{}.dat.iband' using 1:($2-{})\n".format(words[1], k_max, ene_f, words[1], ene_f)
+output_file_folder = "./"
+command = ["cp", os.path.join(output_file_folder, "aucl2.band.gnu"), os.path.join("band", "aucl2.band.gnu")]
+subprocess.run(command)
+ene_f = get_fermi_energy(os.path.join(output_file_folder, "aucl2.save", "data-file-schema.xml"))
+with open(os.path.join(output_file_folder, "aucl2.band.gnu"), "r") as fr:
+    lines_iband = fr.readlines()
+k_max = lines_iband[-2].split()[0]
+command = ["cp", os.path.join(output_file_folder, "dir-wan", "dat.iband"), os.path.join("band", "aucl2.dat.iband")]
+subprocess.run(command)
+str_gnuplot += "set terminal pdf enhanced color\n"
+str_gnuplot += "set output 'aucl2_band.pdf'\n"
+str_gnuplot += "plot 'aucl2.band.gnu' using ($1/{}):($2-{}) w lp, 'aucl2.dat.iband' using 1:($2-{})\n".format(k_max, ene_f, ene_f)
 with open(os.path.join("band", "band_plot_wan_all.gnu"), "w") as fw:
     fw.write(str_gnuplot)

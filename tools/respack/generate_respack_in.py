@@ -30,9 +30,6 @@ respack.in.ref : RESPACKの入力ファイルのテンプレート
 import subprocess
 import os
 import glob
-    
-with open("pressure_cif.dat", "r") as fr:
-    lines = fr.readlines()
 
 def get_fermi_energy(file_name):
     """Quantum ESPRESSOの出力XMLファイルからフェルミエネルギーを取得する
@@ -71,8 +68,8 @@ def generate_respack_in(fermi_ene, output_file_folder):
     """
     os.chdir(output_file_folder)
     str_respack = ""
-    window_range = [-1.2, 0.6]
-    with open("../respack.in.ref", "r") as fr:
+    window_range = [-0.55, 0.5]
+    with open("respack.in.ref", "r") as fr:
         lines = fr.readlines()
     for line in lines:
         if line.split("=")[0] == "Lower_energy_window":
@@ -83,10 +80,7 @@ def generate_respack_in(fermi_ene, output_file_folder):
             str_respack += line
     with open("respack.in", "w") as fw:
         fw.write(str_respack)
-    os.chdir("../")
     
-for line in lines:
-    words = line.split()
-    output_file_folder = "{}GPa".format(words[1])
-    ene_f = get_fermi_energy(os.path.join(output_file_folder, "icl2.save", "data-file-schema.xml"))
-    generate_respack_in(ene_f, output_file_folder)   
+output_file_folder = "./"
+ene_f = get_fermi_energy(os.path.join(output_file_folder, "aucl2.save", "data-file-schema.xml"))
+generate_respack_in(ene_f, output_file_folder)   
