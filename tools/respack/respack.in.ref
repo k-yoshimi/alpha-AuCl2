@@ -6,12 +6,16 @@ N_initial_guess=2/!TOTAL NUMBER OF INITIAL GUESS GAUSSIAN
   dzx  0.2000000000   0.8500000000   0.0000000000   0.3500000000
   dzx  0.2000000000   0.1500000000   0.0000000000   0.6500000000
 &param_interpolation   
-N_sym_points=5/!Number of symmetry points 
-0.00d0 0.00d0  0.00d0 !G
+N_sym_points=9/!Number of symmetry points 
+0.00d0 0.00d0  0.00d0 !GAMMA
 0.00d0 0.00d0  0.50d0 !Z
 0.00d0 0.50d0  0.00d0 !Y
-0.00d0 0.50d0  0.50d0 !M
-0.00d0 0.00d0  0.00d0 !G
+0.00d0 -0.50d0 0.00d0 !Y_2
+0.50d0 0.00d0  0.00d0 !X
+0.50d0 -0.50d0 0.00d0 !V_2
+-0.50d0 0.00d0  0.50d0 !U_2
+0.00d0 -0.50d0 0.50d0 !T_2
+-0.50d0 -0.50d0 0.50d0 !R_2
 
 &param_visualization   
 flg_vis_wannier = 1
