@@ -1,0 +1,8 @@
+&inputpp
+  prefix = 'aucl2',
+  outdir = './tmp/',             ! scf/nscfで使用したものに合わせる
+  spin_component = 'noncolin',   ! SOIあり非共線スピンでは必須
+  write_amn = .true.,
+  write_mmn = .true.,
+  write_unk = .false.
+/
