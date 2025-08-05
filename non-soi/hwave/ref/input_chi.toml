@@ -1,0 +1,26 @@
+[log]
+  print_level = 1
+  print_step = 1
+[mode]
+  mode = "RPA"
+  calc_scheme = "reduced"
+[mode.param]
+  T = 0.01
+  CellShape = [64,64,8]
+  SubShape = [1,1,1]
+  filling = 0.75
+  Nmat = 1024
+  matsubara_frequency = "center"
+[file]
+[file.input]
+  path_to_input = ""
+
+[file.input.interaction]
+  path_to_input = "./dir-model"
+  Geometry = "zvo_geom.dat"
+  Transfer = "zvo_hr.dat"
+
+[file.output]
+  path_to_output = "output"
+  chi0q = "chi0q"
+  matsubara_frequency = "center"

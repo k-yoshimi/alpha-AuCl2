@@ -1,4 +1,5 @@
 &BANDS
 prefix='aucl2'
 filband='aucl2.band'
+lsym = .false. 
 /

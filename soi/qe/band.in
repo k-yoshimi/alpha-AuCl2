@@ -26,6 +26,8 @@
   occupations='smearing'
   smearing='gaussian'
   degauss=0.02
+  noncolin = .true.
+  lspinorb = .true.
 / 
 &electrons
   conv_thr=1.0d-8
@@ -36,12 +38,12 @@ CELL_PARAMETERS {alat}
  -0.015865635189416   1.185110344771242   0.000000000000000 
  -0.223358932297015  -0.451039788933948   1.833038350717504 
 ATOMIC_SPECIES
-   S   32.06750   S_ONCV_PBE-1.2.upf
-  Au  196.96600  Au_ONCV_PBE-1.2.upf
-   C   12.01060   C_ONCV_PBE-1.2.upf
-  Se   78.96000  Se_ONCV_PBE-1.2.upf
-  Cl   35.45150  Cl_ONCV_PBE-1.2.upf
-   H    1.00750   H_ONCV_PBE-1.2.upf
+   S   32.06750   S_ONCV_PBE_FR-1.1.upf
+  Au  196.96600  Au_ONCV_PBE_FR-1.0.upf
+   C   12.01060   C_ONCV_PBE_FR-1.0.upf
+  Se   78.96000  Se_ONCV_PBE_FR-1.1.upf
+  Cl   35.45150  Cl_ONCV_PBE_FR-1.1.upf
+   H    1.00750   H_ONCV_PBE_FR-1.0.upf
 ATOMIC_POSITIONS {crystal}
 Au 0.6071800000 0.2497400000 0.0005000000
 Au 0.3928200000 0.7502600000 0.9995000000

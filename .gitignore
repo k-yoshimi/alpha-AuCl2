@@ -45,7 +45,6 @@ Temporary Items
 *.cube
 *.pdb
 *.xyz
-*.cif
 *.pos
 *.vel
 *.for

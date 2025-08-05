@@ -1,0 +1,36 @@
+[log]
+  print_level = 1
+  print_step = 1
+
+[mode]
+  mode = "UHFk"
+  #flag_fock = "true"
+
+[mode.param]
+  # 2Sz = 0
+  IterationMax = 1
+  EPS = 10
+  Mix = 0.0
+  RndSeed = 123456789
+  T = 0.0
+  # ene_cutoff = 1.0e+2
+  # N.B. chain extends along y-axis by convention
+  CellShape = [ 128, 128, 8 ]
+  SubShape = [ 1, 1, 1 ]
+  filling = 0.75
+[file]
+[file.input]
+  path_to_input = ""
+  # initial = "green_init.dat.npz"
+
+[file.input.interaction]
+  path_to_input = "./dir-model"
+  Geometry = "zvo_geom.dat"
+  Transfer = "zvo_hr.dat"
+  #CoulombIntra = "coulombintra.dat"
+
+[file.output]
+  path_to_output = "output"
+  energy = "energy.dat"
+  eigen = "eigen1"
+  green = "green1"
