@@ -1,0 +1,5 @@
+&inputpp
+  prefix = 'aucl2',
+  outdir = './',             ! scf/nscfで使用したものに合わせる
+  spin_component = 'noncolin',   ! SOIあり非共線スピンでは必須
+/
